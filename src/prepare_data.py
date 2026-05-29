@@ -5,7 +5,6 @@ import zipfile
 import requests
 import pandas as pd
 from tqdm import tqdm
-from dotenv import load_dotenv
 
 def download_file(url, dest_path):
     """
@@ -167,8 +166,6 @@ def main():
     """
     Main execution flow for data preparation.
     """
-    load_dotenv()
-    
     raw_dir = os.getenv('RAW_DATA_PATH', './data/raw')
     processed_dir = os.getenv('PROCESSED_DATA_PATH', './data/processed')
     url = os.getenv('MOVIELENS_URL', 'https://files.grouplens.org/datasets/movielens/ml-1m.zip')

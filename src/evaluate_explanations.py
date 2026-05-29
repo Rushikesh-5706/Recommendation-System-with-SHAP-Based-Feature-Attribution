@@ -9,7 +9,6 @@ import torch
 import torch.nn as nn
 from sklearn.metrics.pairwise import cosine_similarity
 from tqdm import tqdm
-from dotenv import load_dotenv
 
 # Reconstruct NeuMF locally
 class NeuMF(nn.Module):
@@ -229,7 +228,6 @@ def compute_consistency(model, train_df, test_df, train_interactions, n_items, b
     return sum(jaccards) / len(jaccards)
 
 def main():
-    load_dotenv()
     model_dir = os.getenv('MODEL_PATH', './models')
     processed_dir = os.getenv('PROCESSED_DATA_PATH', './data/processed')
     results_dir = os.getenv('RESULTS_PATH', './results')

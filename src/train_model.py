@@ -8,7 +8,6 @@ import joblib
 import torch
 import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
-from dotenv import load_dotenv
 from tqdm import tqdm
 
 class PopularityBaseline:
@@ -179,8 +178,6 @@ def evaluate_neumf(model, test_df, train_interactions, all_items, device):
     return metrics
 
 def main():
-    load_dotenv()
-    
     processed_dir = os.getenv('PROCESSED_DATA_PATH', './data/processed')
     model_dir = os.getenv('MODEL_PATH', './models')
     results_dir = os.getenv('RESULTS_PATH', './results')

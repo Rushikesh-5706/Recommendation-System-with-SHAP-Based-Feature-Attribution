@@ -8,7 +8,6 @@ import joblib
 import shap
 import torch
 import torch.nn as nn
-from dotenv import load_dotenv
 
 # Define NeuMF architecture locally so it doesn't need to be imported
 class NeuMF(nn.Module):
@@ -112,7 +111,6 @@ def main():
     parser.add_argument("--item_id", type=int, required=True, help="Raw movie ID")
     args = parser.parse_args()
     
-    load_dotenv()
     model_dir = os.getenv('MODEL_PATH', './models')
     results_dir = os.getenv('RESULTS_PATH', './results')
     nsamples = int(os.getenv('SHAP_NSAMPLES', '150'))
