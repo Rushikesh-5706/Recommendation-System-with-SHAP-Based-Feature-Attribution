@@ -38,9 +38,9 @@ Raw Dataset (MovieLens 1M)
 |     NeuMF (GMF + MLP)   |------->| Input: User ID                   |
 |                         |        | -> Generate Top-N Candidates     |
 +-------------------------+        | -> SHAP KernelExplainer Wrapper  |
-         |     Trained Model        | -> Explanation Template Logic    |
-         v                          | Output: Human-Readable Text      |
-+----------------------------------++----------------------------------+
+         |     Trained Model       | -> Explanation Template Logic    |
+         v                         | Output: Human-Readable Text      |
++----------------------------------++---------------------------------+
 |  3. Recommendation & Explanation  |
 |     Service                       |
 +-----------------------------------+
