@@ -138,7 +138,7 @@ def process_data(raw_data_dir, processed_data_dir):
         test = group.iloc[-test_size:]
         return pd.Series({'train': train, 'test': test})
 
-    splits = ratings_df.groupby('user_idx', group_keys=False).apply(split_user)
+    splits = ratings_df.groupby('user_idx', group_keys=False).apply(split_user, include_groups=False)
     train_df = pd.concat(splits['train'].tolist())
     test_df = pd.concat(splits['test'].tolist())
 

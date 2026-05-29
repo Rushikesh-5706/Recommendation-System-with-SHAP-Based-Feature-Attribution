@@ -23,7 +23,7 @@ built for transparent and auditable predictions in compliance with modern AI acc
 
 The system is built as a multi-stage offline pipeline with a conceptual service layer for real-time explanation generation.
 
-```
+```text
 Raw Dataset (MovieLens 1M)
          |
          v
@@ -38,12 +38,11 @@ Raw Dataset (MovieLens 1M)
 |     NeuMF (GMF + MLP)   |------->| Input: User ID                   |
 |                         |        | -> Generate Top-N Candidates     |
 +-------------------------+        | -> SHAP KernelExplainer Wrapper  |
-         |     Trained Model        | -> Explanation Template Logic    |
-         v                          | Output: Human-Readable Text      |
-+----------------------------------++----------------------------------+
-|  3. Recommendation & Explanation  |
-|     Service                       |
-+-----------------------------------+
+         |     Trained Model     | -> Explanation Template Logic    |
+         v                       | Output: Human-Readable Text      |
++--------------------------------+ +----------------------------------+
+|  3. Recommendation Service     |
++--------------------------------+
          |
          v
 +-------------------------------+
