@@ -40,7 +40,7 @@ Raw Dataset (MovieLens 1M)
 +-------------------------+        | -> SHAP KernelExplainer Wrapper  |
          |     Trained Model       | -> Explanation Template Logic    |
          v                         | Output: Human-Readable Text      |
-+----------------------------------++---------------------------------+
++-----------------------------------+
 |  3. Recommendation & Explanation  |
 |     Service                       |
 +-----------------------------------+
