@@ -6,3 +6,6 @@ data/raw
 .git
 .ipynb_checkpoints
 *.zip
+venv/
+.venv/
+env/

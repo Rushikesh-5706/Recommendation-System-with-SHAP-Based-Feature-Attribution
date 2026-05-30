@@ -8,6 +8,9 @@ dist/
 build/
 .env
 *.log
+venv/
+.venv/
+env/
 data/raw/
 models/*.joblib
 models/*.pkl
