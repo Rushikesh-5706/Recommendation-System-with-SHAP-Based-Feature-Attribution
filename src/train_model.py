@@ -302,4 +302,13 @@ def main():
     print("Model training complete.")
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        print("\nTraining interrupted by user.")
+        sys.exit(1)
+    except Exception as e:
+        print(f"Training failed: {e}", file=sys.stderr)
+        import traceback
+        traceback.print_exc()
+        sys.exit(1)

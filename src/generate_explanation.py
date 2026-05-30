@@ -231,4 +231,16 @@ def main():
     print(f"Explanation text: {explanation}")
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except ValueError as e:
+        print(f"Input error: {e}", file=sys.stderr)
+        sys.exit(1)
+    except FileNotFoundError as e:
+        print(f"Missing file: {e}", file=sys.stderr)
+        sys.exit(1)
+    except Exception as e:
+        print(f"Explanation generation failed: {e}", file=sys.stderr)
+        import traceback
+        traceback.print_exc()
+        sys.exit(1)
