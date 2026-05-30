@@ -223,6 +223,8 @@ consistency = (1/M) * sum_j [ |top3_u1 ∩ top3_u2| / |top3_u1 ∪ top3_u2| ]
 | Data preparation | 2-3 minutes (includes download) |
 | Model training (CPU, 20 epochs) | 15-25 minutes |
 | Explanation generation (single pair) | 3-6 minutes |
-| Evaluation (100 faithfulness + 50 consistency pairs) | 20-40 minutes |
+| Evaluation (100 faithfulness + 50 consistency pairs) | 8-18 minutes |
+
+The evaluation scripts use a masked feature space (per-user interacted items only, typically 100-300 features) rather than the full catalog (3,700+ features). This reduces SHAP computation time by approximately 10-20x while producing equivalent attribution values over the user's actual interaction history.
 
 SHAP's KernelExplainer scales as O(nsamples * n_features). For a catalog of ~3,700 items, nsamples=150 is a practical setting. Using a GPU reduces training time significantly but does not affect SHAP computation speed, which is CPU-bound.

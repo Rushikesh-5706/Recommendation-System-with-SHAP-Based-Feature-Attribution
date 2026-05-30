@@ -11,11 +11,15 @@ build/
 venv/
 .venv/
 env/
-data/raw/
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
 models/*.joblib
 models/*.pkl
 models/*.pt
 models/*.npz
+!models/.gitkeep
 .DS_Store
 .ipynb_checkpoints/
 *.zip
