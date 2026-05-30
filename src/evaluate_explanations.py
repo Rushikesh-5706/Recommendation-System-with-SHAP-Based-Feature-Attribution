@@ -148,7 +148,7 @@ def compute_faithfulness(model, test_df, train_interactions, background_data, de
         original_score = predict_fn(user_vector_masked)[0]
 
         explainer = shap.KernelExplainer(predict_fn, background_masked)
-        shap_values = explainer.shap_values(user_vector_masked, nsamples=nsamples, silent=True)
+        shap_values = explainer.shap_values(user_vector_masked, nsamples=nsamples, l1_reg="num_features(10)", silent=True)
         shap_vec = shap_values[0] if isinstance(shap_values, list) else shap_values[0]
         if shap_vec.ndim == 2:
             shap_vec = shap_vec[0]
@@ -278,12 +278,12 @@ def compute_consistency(model, train_df, test_df, train_interactions, background
         )
         explainer = shap.KernelExplainer(predict_fn, background_union)
 
-        shap_a = explainer.shap_values(vec_a, nsamples=nsamples, silent=True)
+        shap_a = explainer.shap_values(vec_a, nsamples=nsamples, l1_reg="num_features(10)", silent=True)
         shap_a = (shap_a[0] if isinstance(shap_a, list) else shap_a[0])
         if shap_a.ndim == 2:
             shap_a = shap_a[0]
 
-        shap_b = explainer.shap_values(vec_b, nsamples=nsamples, silent=True)
+        shap_b = explainer.shap_values(vec_b, nsamples=nsamples, l1_reg="num_features(10)", silent=True)
         shap_b = (shap_b[0] if isinstance(shap_b, list) else shap_b[0])
         if shap_b.ndim == 2:
             shap_b = shap_b[0]
